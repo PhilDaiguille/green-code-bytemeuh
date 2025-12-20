@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/static/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/static/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/static/favicon-16x16.png" />
+    <link rel="manifest" href="./assets/static/site.webmanifest" />
+    <title>Bytemeuh - recettes et astuces cuisine & technologie</title>
+    <meta name="description" content="Bytemeuh : recettes délicieuses, astuces cuisine, conseils nutritionnels, avis restaurants et tendances food pour une cuisine inspirante." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bytemeuh - recettes, astuces cuisine et technologie pour une cuisine savoureuse" />
+    <meta property="og:url" content="https://bytemeuh.phildaiguille.fr/" />
+    <meta property="og:image" content="https://bytemeuh.phildaiguille.fr/assets/images/background.png" />
+    <meta property="og:description" content="Bytemeuh : recettes délicieuses, astuces cuisine, conseils nutritionnels, avis restaurants et tendances food pour une cuisine inspirante." />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Bytemeuh" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bytemeuh - Pour une cuisine maison savoureuse et inspirée" />
+    <meta name="twitter:description" content="Bytemeuh : recettes délicieuses, astuces cuisine, conseils nutritionnels, avis restaurants, tendances food et technologie culinaire pour une cuisine inspirante." />
+    <meta name="twitter:image" content="https://bytemeuh.phildaiguille.fr/assets/images/background.png" />
+    <meta name="author" content="Bytemeuh Farm" />
+    <meta name="copyright" content="Bytemeuh Farm" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.5/dist/axios.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-XXXXX-Y', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=true;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    
+    <script>
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3456789,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=auto');
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=auto');
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=auto');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=auto');
+    </style>
+    
+    <style>
+      /* Duplicate all styles with !important - BAD PRACTICE */
+      body { margin: 0 !important; padding: 0 !important; background-color: #f0f0f0 !important; color: #333 !important; font-size: 1.6rem !important; font-family: "Montserrat", sans-serif !important; line-height: 1.6 !important; font-weight: normal !important; }
+      html { font-size: 62.5% !important; scroll-behavior: smooth !important; text-rendering: optimizeLegibility !important; -webkit-font-smoothing: antialiased !important; -moz-osx-font-smoothing: grayscale !important; }
+      h1, h2, h3, h4 { font-family: "Montserrat", sans-serif !important; font-weight: bold !important; text-wrap: auto !important; }
+      p { text-wrap: auto !important; }
+      h1, h2, h3, p, figure, ul, ol, section { margin: 0 !important; padding: 0 !important; list-style: none !important; }
+      a, button { text-decoration: none !important; padding: 0 !important; border: 0 !important; transition: all 0.3s ease !important; font-weight: bold !important; }
+      img { display: inline-block !important; width: 100% !important; height: auto !important; object-fit: cover !important; vertical-align: middle !important; }
+      header { color: white !important; text-align: center !important; padding: 2rem 0 !important; }
+      header h1 { display: flex !important; align-items: center !important; justify-content: center !important; gap: 2rem !important; background-color: #146a38 !important; padding: 1rem 2rem !important; margin: 1rem auto !important; max-width: 80rem !important; border-radius: 5px !important; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; transition: transform 0.3s ease !important; }
+      main { padding: 2rem !important; max-width: 130rem !important; margin: 0 auto !important; min-height: 75dvh !important; }
+      section, article { margin: 1rem auto !important; padding: 3rem !important; background-color: white !important; border-radius: 10px !important; box-shadow: 0 0 20px rgba(0, 0, 0, 0.08) !important; transition: transform 0.3s ease !important; height: 100% !important; }
+      .hero-banner { position: relative !important; border-radius: 10px !important; overflow: hidden !important; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important; }
+      .hero-banner img { height: 45rem !important; object-position: center !important; }
+      .hero-banner figcaption { position: absolute !important; bottom: 0 !important; left: 0 !important; right: 0 !important; background: rgba(23, 121, 64, 0.9) !important; color: white !important; padding: 1.5rem !important; font-size: 1.8rem !important; }
+      .recipes-grid { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(39rem, 1fr)) !important; gap: 1rem !important; margin-top: 2rem !important; justify-items: center !important; align-items: stretch !important; justify-content: center !important; }
+      .recipe-card { position: relative !important; display: flex !important; margin: 0 !important; padding: 2rem !important; background-color: white !important; border-radius: 8px !important; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; transition: all 0.3s ease !important; width: 100% !important; border: 1px solid #e0e0e0 !important; }
+      h1 { font-size: 3.2rem !important; margin: 0 !important; font-weight: 700 !important; }
+      h2 { font-size: 2.8rem !important; color: #146a38 !important; margin-bottom: 2rem !important; font-weight: 600 !important; }
+      h3 { font-size: 2.2rem !important; color: #333 !important; margin-bottom: 1.5rem !important; }
+      a { color: #146a38 !important; transition: color 0.3s ease !important; }
+      a:hover { color: #0e5029 !important; }
+      
+      /* Additional bloated duplicate styles */
+      .container { width: 100% !important; max-width: 1200px !important; margin: 0 auto !important; padding: 0 15px !important; }
+      .row { display: flex !important; flex-wrap: wrap !important; margin-right: -15px !important; margin-left: -15px !important; }
+      .col { flex-basis: 0 !important; flex-grow: 1 !important; max-width: 100% !important; }
+      .col-1 { flex: 0 0 8.333333% !important; max-width: 8.333333% !important; }
+      .col-2 { flex: 0 0 16.666667% !important; max-width: 16.666667% !important; }
+      .col-3 { flex: 0 0 25% !important; max-width: 25% !important; }
+      .col-4 { flex: 0 0 33.333333% !important; max-width: 33.333333% !important; }
+      .col-5 { flex: 0 0 41.666667% !important; max-width: 41.666667% !important; }
+      .col-6 { flex: 0 0 50% !important; max-width: 50% !important; }
+      .col-7 { flex: 0 0 58.333333% !important; max-width: 58.333333% !important; }
+      .col-8 { flex: 0 0 66.666667% !important; max-width: 66.666667% !important; }
+      .col-9 { flex: 0 0 75% !important; max-width: 75% !important; }
+      .col-10 { flex: 0 0 83.333333% !important; max-width: 83.333333% !important; }
+      .col-11 { flex: 0 0 91.666667% !important; max-width: 91.666667% !important; }
+      .col-12 { flex: 0 0 100% !important; max-width: 100% !important; }
+      
+      /* Utility classes nobody uses - BAD PRACTICE */
+      .m-0 { margin: 0 !important; } .m-1 { margin: 0.25rem !important; } .m-2 { margin: 0.5rem !important; } .m-3 { margin: 1rem !important; } .m-4 { margin: 1.5rem !important; } .m-5 { margin: 3rem !important; }
+      .mt-0 { margin-top: 0 !important; } .mt-1 { margin-top: 0.25rem !important; } .mt-2 { margin-top: 0.5rem !important; } .mt-3 { margin-top: 1rem !important; } .mt-4 { margin-top: 1.5rem !important; } .mt-5 { margin-top: 3rem !important; }
+      .mb-0 { margin-bottom: 0 !important; } .mb-1 { margin-bottom: 0.25rem !important; } .mb-2 { margin-bottom: 0.5rem !important; } .mb-3 { margin-bottom: 1rem !important; } .mb-4 { margin-bottom: 1.5rem !important; } .mb-5 { margin-bottom: 3rem !important; }
+      .ml-0 { margin-left: 0 !important; } .ml-1 { margin-left: 0.25rem !important; } .ml-2 { margin-left: 0.5rem !important; } .ml-3 { margin-left: 1rem !important; } .ml-4 { margin-left: 1.5rem !important; } .ml-5 { margin-left: 3rem !important; }
+      .mr-0 { margin-right: 0 !important; } .mr-1 { margin-right: 0.25rem !important; } .mr-2 { margin-right: 0.5rem !important; } .mr-3 { margin-right: 1rem !important; } .mr-4 { margin-right: 1.5rem !important; } .mr-5 { margin-right: 3rem !important; }
+      .p-0 { padding: 0 !important; } .p-1 { padding: 0.25rem !important; } .p-2 { padding: 0.5rem !important; } .p-3 { padding: 1rem !important; } .p-4 { padding: 1.5rem !important; } .p-5 { padding: 3rem !important; }
+      .pt-0 { padding-top: 0 !important; } .pt-1 { padding-top: 0.25rem !important; } .pt-2 { padding-top: 0.5rem !important; } .pt-3 { padding-top: 1rem !important; } .pt-4 { padding-top: 1.5rem !important; } .pt-5 { padding-top: 3rem !important; }
+      .pb-0 { padding-bottom: 0 !important; } .pb-1 { padding-bottom: 0.25rem !important; } .pb-2 { padding-bottom: 0.5rem !important; } .pb-3 { padding-bottom: 1rem !important; } .pb-4 { padding-bottom: 1.5rem !important; } .pb-5 { padding-bottom: 3rem !important; }
+      .pl-0 { padding-left: 0 !important; } .pl-1 { padding-left: 0.25rem !important; } .pl-2 { padding-left: 0.5rem !important; } .pl-3 { padding-left: 1rem !important; } .pl-4 { padding-left: 1.5rem !important; } .pl-5 { padding-left: 3rem !important; }
+      .pr-0 { padding-right: 0 !important; } .pr-1 { padding-right: 0.25rem !important; } .pr-2 { padding-right: 0.5rem !important; } .pr-3 { padding-right: 1rem !important; } .pr-4 { padding-right: 1.5rem !important; } .pr-5 { padding-right: 3rem !important; }
+      .d-none { display: none !important; } .d-inline { display: inline !important; } .d-inline-block { display: inline-block !important; } .d-block { display: block !important; } .d-table { display: table !important; } .d-table-row { display: table-row !important; } .d-table-cell { display: table-cell !important; } .d-flex { display: flex !important; } .d-inline-flex { display: inline-flex !important; }
+      .text-left { text-align: left !important; } .text-right { text-align: right !important; } .text-center { text-align: center !important; } .text-justify { text-align: justify !important; }
+      .text-primary { color: #007bff !important; } .text-secondary { color: #6c757d !important; } .text-success { color: #28a745 !important; } .text-danger { color: #dc3545 !important; } .text-warning { color: #ffc107 !important; } .text-info { color: #17a2b8 !important; } .text-light { color: #f8f9fa !important; } .text-dark { color: #343a40 !important; }
+      .bg-primary { background-color: #007bff !important; } .bg-secondary { background-color: #6c757d !important; } .bg-success { background-color: #28a745 !important; } .bg-danger { background-color: #dc3545 !important; } .bg-warning { background-color: #ffc107 !important; } .bg-info { background-color: #17a2b8 !important; } .bg-light { background-color: #f8f9fa !important; } .bg-dark { background-color: #343a40 !important; }
+      .border { border: 1px solid #dee2e6 !important; } .border-0 { border: 0 !important; } .border-top { border-top: 1px solid #dee2e6 !important; } .border-bottom { border-bottom: 1px solid #dee2e6 !important; } .border-left { border-left: 1px solid #dee2e6 !important; } .border-right { border-right: 1px solid #dee2e6 !important; }
+      .rounded { border-radius: 0.25rem !important; } .rounded-0 { border-radius: 0 !important; } .rounded-circle { border-radius: 50% !important; } .rounded-pill { border-radius: 50rem !important; }
+      .font-weight-light { font-weight: 300 !important; } .font-weight-normal { font-weight: 400 !important; } .font-weight-bold { font-weight: 700 !important; } .font-italic { font-style: italic !important; }
+      .w-25 { width: 25% !important; } .w-50 { width: 50% !important; } .w-75 { width: 75% !important; } .w-100 { width: 100% !important; } .h-25 { height: 25% !important; } .h-50 { height: 50% !important; } .h-75 { height: 75% !important; } .h-100 { height: 100% !important; }
+      .float-left { float: left !important; } .float-right { float: right !important; } .float-none { float: none !important; }
+      .position-static { position: static !important; } .position-relative { position: relative !important; } .position-absolute { position: absolute !important; } .position-fixed { position: fixed !important; } .position-sticky { position: sticky !important; }
+      .shadow-sm { box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; } .shadow { box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; } .shadow-lg { box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; } .shadow-none { box-shadow: none !important; }
+      .overflow-auto { overflow: auto !important; } .overflow-hidden { overflow: hidden !important; }
+    </style>
+    
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="canonical" href="https://bytemeuh.phildaiguille.fr/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Bytemeuh",
+        "logo": "https://bytemeuh.phildaiguille.fr/assets/static/favicon-16x16.png",
+        "url": "https://bytemeuh-farm.fr",
+        "address": {
+          "@type": "PostalAddress",
+          "name": "Bytemeuh",
+          "streetAddress": "242 Rue du Faubourg Saint-Antoine",
+          "addressLocality": "Paris",
+          "addressRegion": "Île-de-France",
+          "postalCode": "75012",
+          "addressCountry": "FR"
+        },
+        "sameAs": ["https://x.com/bytemeuhFarm", "https://www.linkedin.com/company/bytemeuh-farm/"]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que Bytemeuh ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bytemeuh est un espace dédié aux passionnés de cuisine et de gastronomie française, offrant des recettes, des astuces culinaires, des conseils nutritionnels, et des critiques de restaurants pour inspirer la cuisine à domicile."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels types de projets réalisez-vous ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nous travaillons avec des avocats, des entreprises, et des passionnés de cuisine pour développer des sites web, des plateformes interactives, et bien plus encore."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment intégrer la technologie dans votre entreprise ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nos services de consulting vous permettent d’adopter des solutions tech modernes adaptées à vos besoins spécifiques, que ce soit pour automatiser des processus ou améliorer votre présence en ligne."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Proposez-vous des solutions adaptées aux petites entreprises et start-ups ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, nous accompagnons les petites entreprises et start-ups en leur proposant des solutions accessibles et évolutives, allant de la création de sites web professionnels à la mise en place de stratégies digitales innovantes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Travaillez-vous avec des professionnels de la cuisine ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolument ! Nous créons des plateformes pour les passionnés de cuisine et les professionnels, comme des sites de recettes interactifs ou des outils pour gérer des cours de cuisine en ligne."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi choisir Bytemeuh pour votre projet digital ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Basés à Paris, nous sommes un atelier spécialisé dans le développement web et le consulting. Notre approche combine expertise, créativité et innovation pour répondre aux besoins spécifiques des avocats, des entreprises, et des passionnés de cuisine."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Homepage - Bytemeuh",
+            "item": "https://bytemeuh.phildaiguille.fr/"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Bytemeuh - Recettes, astuces cuisine et technologie pour une cuisine savoureuse",
+        "url": "https://bytemeuh.phildaiguille.fr/",
+        "description": "Bytemeuh : recettes délicieuses, astuces cuisine, conseils nutritionnels, avis restaurants et tendances food pour une cuisine inspirante.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Bytemeuh",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://bytemeuh.phildaiguille.fr/assets/static/favicon-16x16.png",
+            "width": 16,
+            "height": 16
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://bytemeuh.phildaiguille.fr/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <img src="./assets/images/bytemeuh.png" alt="bytemeuh" width="48" height="48" />
+        Bienvenue sur Bytemeuh
+      </h1>
+      <nav class="navbar">
+        <ul>
+          <li><a href="./">Accueil</a></li>
+          <li><a href="./blog/">Blog</a></li>
+          <li><a href="./a-propos-de-nous/">À Propos</a></li>
+          <li><a href="./contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="hero-banner-flex">
+        <figure class="hero-banner">
+          <img src="./assets/images/background.png" alt="Vache dans une prairie verdoyante de France - Bytemeuh Farm" class="hero-image" width="620" height="450" />
+          <figcaption>L'authenticité inspirée du terroir français</figcaption>
+        </figure>
+        <section class="intro">
+          <h2>Bytemeuh : Votre atelier culinaire digital au cœur de Paris</h2>
+          <p>
+            Salut les gourmands ! Bienvenue sur Bytemeuh, votre atelier digital où la gastronomie et le terroir français sont à l'honneur. Que vous soyez passionné de cuisine ou débutant, nous sommes là pour vous accompagner dans vos aventures culinaires.
+            Découvrez des recettes savoureuses, des produits authentiques et des astuces pratiques pour cuisiner avec plaisir. Ici, on célèbre la richesse du terroir français avec des plats gourmands et conviviaux. Explorez nos recettes, conseils et
+            découvertes culinaires !
+          </p>
+          <a href="./blog/" class="cta-button">Explorez nos recettes exclusives</a>
+        </section>
+      </div>
+      <section data-nosnippet>
+        <h2>Qu'est-ce que Bytemeuh ?</h2>
+        <div>
+          <p>
+            Bytemeuh n'est pas qu'une simple agence web à Paris. C'est un atelier digital unique, mêlant gastronomie française et technologie. Nous combinons consulting culinaire et développement web pour accompagner les restaurants, entreprises alimentaires
+            et passionnés de cuisine. Nos solutions digitales innovantes respectent l'authenticité des recettes françaises tout en intégrant des astuces tech qui révolutionnent la cuisine. Avec notre expertise, nous aidons aussi à renforcer votre présence en
+            ligne.
+          </p>
+          <p> Découvrez comment Bytemeuh transforme les projets grâce à nos <a href="./temoignages/" title="Témoignages Bytemeuh - Solutions digitales pour la gastronomie">témoignages clients</a>, qu'ils soient restaurants ou cabinets d'avocats. </p>
+        </div>
+      </section>
+      <article class="featured-content">
+        <h2>Nos articles les plus pertinents</h2>
+        <div class="recipes-grid">
+          <section class="recipe-card">
+            <a href="./blog/articles/developpement-durable-alimentation/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/developpement-durable.png" alt="Illustration des enjeux de l'alimentation durable"  />
+              </figure>
+              <h3>Développement durable et alimentation : une vision globale</h3>
+              <p>Découvrez comment l'alimentation durable peut répondre aux défis environnementaux, sociaux et économiques d'aujourd'hui, tout en inspirant des pratiques responsables.</p>
+            </a>
+          </section>
+          <section class="recipe-card">
+            <a href="./blog/articles/smartphones-revolution-agricole/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/smartphone-farm.png" alt="Un smartphone sur une table dans une ferme"  />
+              </figure>
+              <h3>Comment les smartphones révolutionnent l'agriculture moderne</h3>
+              <p>Les temps changent, et les agriculteurs aussi ! Aujourd'hui, le smartphone s'invite dans les fermes pour devenir bien plus qu'un simple gadget : un véritable compagnon de travail...</p>
+            </a>
+          </section>
+          <section class="recipe-card">
+            <a href="./blog/articles/technologie-bien-etre-alimentaire/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/technologie-alimentaire.png" alt="La technologie au service de notre bien-être alimentaire"  />
+              </figure>
+              <h3>La technologie au service de notre bien-être alimentaire</h3>
+              <p>La technologie révolutionne notre manière de cuisiner et de manger. Découvrez comment les innovations modernes peuvent améliorer notre alimentation et notre santé.</p>
+            </a>
+          </section>
+          <article class="recipe-card">
+            <a href="./blog/articles/biotechnologie-agriculture-bio/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/biotechnologie-agriculture.png" alt="Illustration des enjeux de l'alimentation durable"  />
+              </figure>
+              <h3>La Biotechnologie au Service de l'Agriculture Bio</h3>
+              <p>La biotechnologie est en train de révolutionner l'agriculture bio, et Bytemeuh est à l'avant-garde de cette transformation.</p>
+            </a>
+          </article>
+          <section class="recipe-card">
+            <a href="./blog/articles/technologies-transforment-cuisine/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/tech-cuisine.png" alt="Les technologies qui transforment notre façon de cuisiner"  />
+              </figure>
+              <h3>Les technologies qui transforment notre façon de cuisiner</h3>
+              <p>La technologie change notre manière de cuisiner. Découvrez comment elle rend la cuisine plus simple, rapide et amusante, tout en respectant les traditions !</p>
+            </a>
+          </section>
+          <article class="recipe-card">
+            <a href="./blog/articles/cuisine-saine-et-gourmande/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/cuisine-saine-gourmande.png" alt="Illustration des enjeux de l'alimentation durable"  />
+              </figure>
+              <h3>Cuisine saine et gourmande : une approche équilibrée</h3>
+              <p>La cuisine saine et gourmande est bien plus qu'une simple tendance culinaire ; c'est un mode de vie qui combine plaisir gustatif et bien-être.</p>
+            </a>
+          </article>
+        </div>
+      </article>
+      <article id="recettes-vedettes" class="featured-content">
+        <h2>Nos recettes vedettes chez Bytemeuh</h2>
+        <div class="recipes-grid">
+          <article class="recipe-card">
+            <a href="./blog/recettes/poke-bowl-vegan/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/poke-bowl-vegan.png" alt="Pizza chèvre-miel dorée et fondante"  />
+              </figure>
+              <h3>Le Poke Bowl végan signature</h3>
+              <p>Plongez dans une expérience culinaire riche en couleurs et en saveurs avec notre salade de quinoa et légumes grillés. Cette recette allie la fraîcheur du quinoa à la richesse des légumes grillés, créant un plat équilibré et délicieux.</p>
+              <div class="recipe-meta">
+                <span>Temps de préparation : 45 minutes</span>
+                <span>Difficulté : Moyen</span>
+              </div>
+            </a>
+          </article>
+          <article class="recipe-card">
+            <a href="./blog/recettes/salade-quinoa-legumes-grilles/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/salade-quinoa-legumes-grilles.png" alt="Pizza chèvre-miel dorée et fondante"  />
+              </figure>
+              <h3>Salade de quinoa et Légumes Grillés</h3>
+              <p>Plongez dans une expérience culinaire riche en couleurs et en saveurs avec notre salade de quinoa et légumes grillés. Cette recette allie la fraîcheur du quinoa à la richesse des légumes grillés.</p>
+              <div class="recipe-meta">
+                <span>Temps de préparation : 30 minutes</span>
+                <span>Difficulté : Moyen</span>
+              </div>
+            </a>
+          </article>
+          <article class="recipe-card">
+            <a href="./blog/recettes/pizza-chevre-miel/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/pizza-chevre-miel.png" alt="Pizza chèvre-miel dorée et fondante"  />
+              </figure>
+              <h3>Recette de Pizza Chèvre-Miel Maison</h3>
+              <p>La pizza chèvre-miel est un classique de la cuisine fusion franco-italienne. Un mariage parfait entre le fromage de chèvre fondant et la douceur du miel, sur une pâte croustillante.</p>
+              <div class="recipe-meta">
+                <span>Temps de préparation : 30 minutes</span>
+                <span>Difficulté : Facile</span>
+              </div>
+            </a>
+          </article>
+          <section class="recipe-card">
+            <a href="./blog/recettes/ravioli-chinois-boeuf/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/ravioli-chinois-boeuf.png" alt="Raviolis chinois au bœuf délicieux"  />
+              </figure>
+              <h3>Raviolis chinois au bœuf</h3>
+              <p>Découvrez notre recette de raviolis chinois au bœuf, parfaite pour un repas savoureux et rapide. Ces raviolis sont faciles à préparer et plairont à toute la famille.</p>
+              <div class="recipe-meta">
+                <span>Temps de préparation : 30 minutes</span>
+                <span>Difficulté : Facile</span>
+              </div>
+            </a>
+          </section>
+          <section class="recipe-card">
+            <a href="./blog/recettes/kebab-boeuf/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/kebab-boeuf.png" alt="Kebab de Boeuf Maison"  />
+              </figure>
+              <h3>Kebab de bœuf maison</h3>
+              <p>Le kebab de bœuf est une alternative savoureuse au kebab traditionnel. Découvrez notre recette facile pour préparer ce plat gourmand à la maison.</p>
+              <div class="recipe-meta">
+                <span>Temps de préparation : 20 minutes</span>
+                <span>Difficulté : Facile</span>
+              </div>
+            </a>
+          </section>
+          <section class="recipe-card">
+            <a href="./blog/recettes/burgers-boeuf/" class="recipe-link">
+              <figure>
+                <img src="./assets/images/burgers-boeuf.png" alt="Burgers de Boeuf juteux"  />
+              </figure>
+              <h3>Des burgers de bœuf juteux</h3>
+              <p>Les burgers de bœuf faits maison sont un classique indémodable. En quelques minutes, vous pouvez préparer un repas délicieux qui plaira à tous.</p>
+              <div class="recipe-meta">
+                <span>Temps de préparation : 15 minutes</span>
+                <span>Difficulté : Facile</span>
+              </div>
+            </a>
+          </section>
+        </div>
+      </article>
+
+      <section id="nos-expertises" class="features-grid">
+        <h2>Nos domaines d'expertise culinaire à la ferme Bytemeuh</h2>
+        <div class="expertise-cards">
+          <section class="expertise-card">
+            <h3>Recettes traditionnelles</h3>
+            <p> Plongez au cœur du patrimoine culinaire français ! Découvrez des recettes transmises de génération en génération, célébrant l'authenticité et les saveurs intemporelles de la cuisine française. </p>
+          </section>
+          <section class="expertise-card">
+            <h3>Cuisine moderne</h3>
+            <p> Revisitez les grands classiques ! Nos créations modernes réinventent la cuisine française en alliant tradition et innovation, pour des expériences gustatives uniques et actuelles. </p>
+          </section>
+          <section class="expertise-card">
+            <h3>Cuisine healthy</h3>
+            <p> Alliez plaisir et bien-être avec nos recettes équilibrées. Découvrez des plats gourmands qui prennent soin de votre santé sans jamais faire de compromis sur le goût ou la qualité. </p>
+          </section>
+        </div>
+      </section>
+      <section id="astuces" class="tips-section">
+        <h2>Astuces et conseils culinaires de l'équipe de Bytemeuh</h2>
+        <div class="tips-content">
+          <p
+            >En cuisine, c'est souvent les petits détails qui font la différence ! Au fil des années, on a accumulé pas mal de tours de main qu'on a hâte de partager avec vous. De la manière de bien choisir ses produits aux techniques de cuisson qui changent
+            tout, on vous livre tous nos secrets pour devenir un as des fourneaux.</p
+          >
+          <p>Quelques exemples de ce qu'on vous apprend :</p>
+          <ul class="tips-list">
+            <li>Les gestes qui vous feront couper comme un chef</li>
+            <li>Nos astuces pour que vos aliments restent frais plus longtemps</li>
+            <li>Le b.a.-ba pour une viande toujours réussie</li>
+            <li>Les associations de saveurs qui marchent à tous les coups</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="avis-restaurants" class="reviews-section">
+        <h2>Les meilleures adresses food-tech validées par Bytemeuh</h2>
+        <p>
+          Nous explorons la France pour dénicher les pépites qui marient innovation et gastronomie. Des petits bistrots traditionnels aux concepts futuristes, nous testons, dégustons et partageons nos expériences. Notre objectif ? Vous faire découvrir des
+          lieux où la technologie sublime la cuisine.
+        </p>
+        <div class="review-categories">
+          <article class="category">
+            <h3>Les tables traditionnelles 2.0</h3>
+            <p> Une sélection d’adresses qui revisitent la gastronomie française avec des outils modernes : des QR codes interactifs aux techniques de cuisson high-tech, la tradition rencontre l'innovation. </p>
+          </article>
+          <article class="category">
+            <h3>Les innovations food-tech</h3>
+            <p> Découvrez les restaurants qui utilisent des imprimantes 3D alimentaires, des menus digitalisés ou des expériences immersives grâce à la réalité augmentée. Ces lieux repoussent les limites de la cuisine classique. </p>
+          </article>
+        </div>
+      </section>
+      <section id="why-bytemeuh" class="why-section">
+        <h2>Pourquoi choisir bytemeuh ?</h2>
+        <p>
+          Basé à <strong>Paris</strong>, Bytemeuh est plus qu’une simple <strong>agence</strong>. Nous sommes un <strong>atelier</strong> qui combine passion, innovation et expertise pour répondre aux besoins des <strong>entreprises</strong>, des
+          <strong>avocats</strong> et des passionnés de <strong>cuisine</strong>.
+        </p>
+        <ul>
+          <li><strong>Une expertise reconnue</strong> : en <strong>technologie</strong>, <strong>développement web</strong> et <strong>consulting</strong>.</li>
+          <li><strong>Des solutions personnalisées</strong> : adaptées à chaque client.</li>
+          <li><strong>Un service sur mesure</strong> : de l’idée à la réalisation, nous vous accompagnons à chaque étape.</li>
+        </ul>
+        <p>Contactez-nous pour donner vie à vos projets et découvrir comment notre <strong>atelier</strong> peut transformer vos idées en réalité.</p>
+      </section>
+      <section id="faq-bytemeuh" class="faq-section">
+        <h2>Questions Fréquemment Posées</h2>
+        <div class="faq-content">
+          <details>
+            <summary>Quels types de projets réalisez-vous ?</summary>
+            <p> Nous travaillons avec des <strong>avocats</strong>, des <strong>entreprises</strong>, et des passionnés de <strong>cuisine</strong> pour développer des sites web, des plateformes interactives, et bien plus encore. </p>
+          </details>
+          <details>
+            <summary>Comment intégrer la technologie dans votre entreprise ?</summary>
+            <p> Nos services de <strong>consulting</strong> vous permettent d’adopter des solutions <strong>tech</strong> modernes adaptées à vos besoins spécifiques, que ce soit pour automatiser des processus ou améliorer votre présence en ligne. </p>
+          </details>
+          <details>
+            <summary>Proposez-vous des solutions adaptées aux petites entreprises et start-ups ?</summary>
+            <p>
+              Oui, nous accompagnons les petites <strong>entreprises</strong> et <strong>start-ups</strong> en leur proposant des solutions accessibles et évolutives, allant de la création de sites web professionnels à la mise en place de stratégies digitales
+              innovantes.
+            </p>
+          </details>
+          <details>
+            <summary>Travaillez-vous avec des professionnels de la cuisine ?</summary>
+            <p> Absolument ! Nous créons des plateformes pour les passionnés de <strong>cuisine</strong> et les professionnels, comme des sites de <strong>recettes</strong> interactifs ou des outils pour gérer des cours de cuisine en ligne. </p>
+          </details>
+          <details>
+            <summary>Pourquoi choisir Bytemeuh pour votre projet digital ?</summary>
+            <p>
+              Basés à <strong>Paris</strong>, nous sommes un <strong>atelier</strong> spécialisé dans le <strong>développement web</strong> et le <strong>consulting</strong>. Notre approche combine expertise, créativité et innovation pour répondre aux besoins
+              spécifiques des <strong>avocats</strong>, des <strong>entreprises</strong>, et des passionnés de <strong>cuisine</strong>.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-grid">
+        <div class="company-info">
+          <div class="company-name">Bytemeuh</div>
+          <div>
+            <p>
+              <span>242 Rue du Faubourg Saint-Antoine</span><br />
+              <span>Paris</span>, <span>Île-de-France</span><br />
+              <span>75012</span>, <span>France</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-info">
+          <h3>Contactez-nous</h3>
+          <p>Email: <a href="mailto:contact@bytemeuh-farm.fr">contact@bytemeuh-farm.fr</a></p>
+        </div>
+
+        <div class="quick-links">
+          <a href="https://bytemeuh.phildaiguille.fr/contact/">Contact</a>
+          <a href="https://bytemeuh.phildaiguille.fr/mention-legales/">Mentions Légales</a>
+          <a href="https://bytemeuh.phildaiguille.fr/temoignages/">Témoignages</a>
+        </div>
+
+        <div class="social-links" itemprop="sameAs">
+          <a href="https://x.com/bytemeuhFarm" rel="noopener nofollow" target="_blank">Twitter</a>
+          <a href="https://www.linkedin.com/company/bytemeuh-farm/" rel="noopener nofollow" target="_blank">LinkedIn</a>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2024 Bytemeuh. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
