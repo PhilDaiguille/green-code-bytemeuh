@@ -1,6 +1,6 @@
 # Objectif du projet SEO
 
-![background](./assets/images/background.png)
+![background](./assets/images/background.webp)
 
 ## Mot clés en question : Bytemeuh
 
