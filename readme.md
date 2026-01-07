@@ -1,4 +1,4 @@
-# Objectif du projet SEO
+# Objectif Eco code
 
 ![background](./assets/images/background.png)
 
