@@ -6,7 +6,7 @@
 
 html {
 	font-size: 62.5%;
-	scroll-behavior: smooth;
+	/* ✅ GREEN CODE : scroll-behavior: smooth; supprimé (animation coûteuse) */
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -60,7 +60,7 @@ img {
 	vertical-align: middle;
 }
 
-/* Scroll bars */
+/* ✅ GREEN CODE : Scrollbars personnalisées supprimées (rendu coûteux)
 *,
 *::before,
 *::after {
@@ -77,6 +77,13 @@ img {
 *::-webkit-scrollbar-thumb {
 	background-color: #222;
 	outline: 0.1rem solid #333;
+}
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
 }
 
 /* Body Styles */
@@ -103,13 +110,10 @@ header h1 {
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
-	background-color: #146a38;
+	/* ✅ GREEN CODE : background-color, border-radius, box-shadow, transition supprimés (styles décoratifs) */
 	padding: 1rem 2rem;
 	margin: 1rem auto;
 	max-width: 80rem;
-	border-radius: 5px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s ease;
 
 	@media (max-width: 480px) {
 		padding: 1rem;
