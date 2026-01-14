@@ -159,8 +159,8 @@
 			"statusCode": 301
 		},
 		{
-			"source": "/assets/images/elevage-intelligent.png",
-			"destination": "/assets/images/vaches-tech.png",
+			"source": "/assets/images/elevage-intelligent.webp",
+			"destination": "/assets/images/vaches-tech.webp",
 			"statusCode": 301
 		},
 		{
