@@ -1143,3 +1143,41 @@ a:hover {
 		}
 	}
 }
+
+/* ============================================
+   LOW BANDWIDTH MODE
+   Styles appliqués quand la connexion est lente
+   ou que le mode économie de données est activé
+   ============================================ */
+
+body.low-bandwidth {
+	/* Désactive toutes les transitions pour économiser les ressources */
+	* {
+		transition: none !important;
+		animation: none !important;
+	}
+
+	/* Masque les vidéos */
+	video,
+	iframe[src*="youtube"],
+	iframe[src*="vimeo"] {
+		display: none;
+	}
+
+	/* Réduit la qualité visuelle des images de fond */
+	.hero-banner {
+		box-shadow: none;
+	}
+
+	/* Message d'information pour l'utilisateur */
+	&::before {
+		content: "🐌 Mode économie de données activé";
+		display: block;
+		background: #fef3c7;
+		color: #92400e;
+		text-align: center;
+		padding: 0.5rem;
+		font-size: 1.4rem;
+		font-weight: 600;
+	}
+}
